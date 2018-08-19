@@ -54,6 +54,16 @@ function displayQuestion(j) {
             $("#scoreboard").show();
             $("button").hide();
             $("#info").hide();
+            if (count >= 8) {
+                $("button").show();
+                $(".answer").hide();
+                $("#question").html("Quiz complete good Job");
+                $("button").html("Play Again");
+                clearInterval(interval);
+                $("button").on("click", function() {
+                    location.reload();
+                });
+            }
             time.html(30);
         }
         setTimeout(populate, 1000);
@@ -65,14 +75,7 @@ function displayQuestion(j) {
             $(".answer").hide();
             $("#scoreboard").hide();
 
-            if (count >= 8) {
-                $("button").show();
-                $("#question").html("Quiz complete good Job");
-                $("button").html("Play Again");
-                $("button").on("click", function() {
-                    location.reload();
-                });
-            } else if (userGuess == correctAnswer) {
+            if (userGuess == correctAnswer) {
                 console.log("right");
                 correctAnswers++;
                 $("#correct").html(correctAnswers);
