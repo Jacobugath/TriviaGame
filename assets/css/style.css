@@ -1,0 +1,57 @@
+body {
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    background-image: url(../images/vintage-concrete.png);
+}
+#orange {
+    background-color: orange;
+    margin: auto;
+    border: darkorange solid 4px;
+
+    text-align: center;
+    width: 70%;
+    height: 50vh;
+    margin-top: 15vh;
+    font-size: 1.5em;
+}
+button {
+    margin-top: 2vh;
+    margin-bottom: 10vh;
+    background-color: darkorange;
+    border: none;
+    width: 200px;
+}
+#left {
+    float: left;
+    margin-left: 15%;
+    width: 20px;
+    color: black;
+}
+#right {
+    float: right;
+    margin-right: 18%;
+    width: 20px;
+    color: black;
+}
+h1 {
+    color: darkorange;
+    text-shadow: 2px 2px #000;
+    text-size: 5em;
+}
+#scoreboard {
+    color: darkorange;
+}
+#leftScore {
+    float: left;
+    margin-left: 5%;
+}
+#rightScore {
+    float: right;
+    margin-right: 5%;
+}
+.answer {
+    cursor: pointer;
+}
+.answer:hover {
+    background-color: darkorange;
+}
