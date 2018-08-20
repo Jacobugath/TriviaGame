@@ -55,3 +55,8 @@ h1 {
 .answer:hover {
     background-color: darkorange;
 }
+@media screen and (max-width: 640px) {
+    #orange {
+        height: 65vh;
+    }
+}

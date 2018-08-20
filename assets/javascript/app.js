@@ -1,10 +1,11 @@
-var interval;
+var timey;
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var count = 0;
 var audio = new Audio(
     "http://www.freesfx.co.uk/rx2/mp3s/4/16405_1460641087.mp3"
 );
+$("button").off("click");
 $("button").on("click", next);
 var time = $("#time");
 var userAnswer;
@@ -53,14 +54,32 @@ function displayQuestion(j) {
         $("button").hide();
         $("#info").hide();
         if (count >= 8) {
+            time.html("30");
+
+            clearInterval(timey);
             $("button").show();
             $(".answer").hide();
-            $("#question").html("Quiz complete good Job <br>");
+            if (correctAnswers >= 8) {
+                $("#question").html(
+                    "Quiz complete. Perfect Score. Wow, you're smart! <br>"
+                );
+            } else if (correctAnswers >= 7 && correctAnswers >= 4) {
+                $("#question").html(
+                    "Quiz complete. You did pretty good. Try for a perfect score next time! <br>"
+                );
+            } else {
+                $("#question").html(
+                    "Quiz complete. You're really not very smart are you? Oh well. Try to do better next time! <br>"
+                );
+            }
+
             $("button").html("Play Again");
-            clearInterval(interval);
+
             $("button").off("click");
+
             $("button").on("click", function() {
                 $("button").off("click");
+                $("#time").show();
                 $("button").on("click", next);
                 correctAnswers = 0;
                 wrongAnswers = 0;
@@ -72,7 +91,7 @@ function displayQuestion(j) {
 
         function checkAnswer(userGuess, correctAnswer) {
             count++;
-            clearInterval(interval);
+            clearInterval(timey);
             $(".answer").hide();
             $("#scoreboard").hide();
 
@@ -95,13 +114,16 @@ function displayQuestion(j) {
             }
         }
 
-        interval = setInterval(timer, 1000);
+        timey = setInterval(timer, 1000);
     });
 }
 
 function timer() {
     var timenum = document.getElementById("time").innerHTML;
-    if (timenum <= 0) {
+    if (correctAnswers + wrongAnswers >= 8) {
+        clearInterval(timey);
+        time.html("30");
+    } else if (timenum <= 0) {
         count++;
         $(".answer").hide();
         $("#scoreboard").hide();
@@ -111,7 +133,7 @@ function timer() {
         wrongAnswers++;
         $("#wrong").html(wrongAnswers);
 
-        clearInterval(interval);
+        clearInterval(timey);
     } else {
         time.html(timenum - 1);
     }
