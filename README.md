@@ -11,3 +11,6 @@ If the player chooses the incorrect answer, they are told they are are wrong and
 This project succeeded in provding an easy way to test your trivia knowledge. You can start playing the game by hitting the start button. Keep selecting answers until you are informed that your quiz is complete. 
 
 Jacobugath maintains the project create an issue for new feature requests or bugs
+
+![portfolio-2](https://user-images.githubusercontent.com/38122078/52170615-ce8cc900-270a-11e9-8e1d-14cf63c45b4c.jpg)
+
